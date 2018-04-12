@@ -1,0 +1,34 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "postgres": "postgres://siut2:siut2@localhost:5432/SIUT",
+  "authentication": {
+    "secret": "67398e87ec7bbd844202e593aada76286b498810591d80d2fb2213c4d78fdcbe94fc9a0a0c46991b70922d566eaf976cd97b65eb52938f5d7f79286cf5382dace20ffd8423473d5cefbd30e56d10e4cfdf3d19da43d42db2ab40ae11f84b23f342e2f3e8985eaf519bb923e68a2cc56f653d3569c4484739c6896ac060eb1e785fb2c33f008bee4a55eca51517ac9060204ce3819ab1f6af5f7d49f7a838126d25dcff4200709f0ccc5fed35243068037d63a6e45d24249e66c55323522f98327c1469533e1f87cb9d6393511b65d03b8a939846e2d805e52044750d3597dc965d8c6b9f399d23a2f3363a4c3ae53b6c36f12e148ac3b25c80700e1b3b7cbaff",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "email",
+      "passwordField": "password"
+    }
+  }
+}
